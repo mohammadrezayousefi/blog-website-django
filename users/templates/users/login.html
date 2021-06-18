@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group" dir="rtl">
+                <legend class="border-button mb-4" dir="rtl">همین حالا وارد شوید.</legend>
+                {{ form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit" dir="rtl">وارد شوید.</button>
+                <small >
+                    <a href="{% url 'password_reset' %}" dir="rtl">رمز عبور خود را فراموش کرده اید؟</a>
+                </small>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted" dir="rtl">قبلا ثبت نام نکرده اید؟
+                <a class="ml-2" href="{% url 'register' %}" dir="rtl">ثبت نام کنید.</a>
+            </small>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group" dir="rtl">
+                <legend class="border-button mb-4" dir="rtl">حذف پست</legend>
+                <h2 dir="rtl">ایا مطمئن هستید مخواهید {{ object.title }} را حذف کنید؟</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit" dir="rtl">بله حذف کن</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}" dir="rtl">خیر</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
